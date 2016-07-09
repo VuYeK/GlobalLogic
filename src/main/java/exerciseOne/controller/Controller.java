@@ -16,7 +16,7 @@ public class Controller implements Initializable {
     @FXML
     private TextField txtFieldWord;
 
-    private static char findFirstNonRepeatingChar(String string) {
+    public static char findFirstNonRepeatingChar(String string) {
         Set<Character> repeating = new HashSet<>();
         List<Character> nonRepeating = new ArrayList<>();
         for (int i = 0; i < string.length(); i++) {

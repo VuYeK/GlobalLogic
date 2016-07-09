@@ -50,6 +50,17 @@ public class Controller implements Initializable {
     @FXML
     private PieChart ID_PIE_CHART;
 
+    //Sprawdzenie czy podana wartość jest liczbą
+    public static boolean validateInteger(String text) {
+        if (text.matches("\\d*"))
+            return false;
+        else if (text.matches("\"\"")) {
+            return true;
+        } else {
+            return true;
+        }
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -71,18 +82,6 @@ public class Controller implements Initializable {
     private void setStudentsArray() {
         students = FXCollections.observableArrayList(studentList);
         ID_TABLE_VIEW.setItems(students);
-    }
-
-    //Sprawdzenie czy podana wartość jest liczbą
-    private boolean validateInteger(String text) {
-        if (text.matches("\\d*"))
-            return false;
-        else if (text.matches("\"\"")) {
-            return true;
-        } else {
-            return true;
-        }
-
     }
 
     //Generowanie losowych danych o studentach i ocenach
