@@ -1,5 +1,4 @@
 import exerciseOne.view.MainApp1;
-
 import exerciseThree.view.MainApp3;
 import exerciseTwo.view.MainApp2;
 import javafx.application.Application;

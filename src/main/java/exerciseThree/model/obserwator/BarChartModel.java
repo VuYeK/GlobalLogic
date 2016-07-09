@@ -14,7 +14,7 @@ public class BarChartModel implements IObservator {
     private javafx.scene.chart.BarChart<String, Integer> chart;
     private CategoryAxis categoryAxis;
 
-    public BarChartModel(javafx.scene.chart.BarChart<String, Integer> chart, CategoryAxis categoryAxis){
+    public BarChartModel(javafx.scene.chart.BarChart<String, Integer> chart, CategoryAxis categoryAxis) {
         this.chart = chart;
         this.categoryAxis = categoryAxis;
     }
@@ -41,7 +41,7 @@ public class BarChartModel implements IObservator {
     }
 
     @Override
-    public void rollback(){
+    public void rollback() {
         this.chart.getData().clear();
         ObservableList<Student> students;
         List<Student> studentList = new ArrayList<>();

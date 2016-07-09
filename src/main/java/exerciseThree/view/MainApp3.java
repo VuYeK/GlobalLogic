@@ -10,7 +10,9 @@ import java.io.IOException;
 
 
 public class MainApp3 extends Application {
-    public static void main(String[] args) {launch(args);}
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -19,7 +21,6 @@ public class MainApp3 extends Application {
         primaryStage.setScene(new Scene(rootLayout));
         primaryStage.show();
     }
-
 
 
     public void start3() throws IOException {

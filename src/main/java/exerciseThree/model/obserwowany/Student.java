@@ -15,6 +15,7 @@ public class Student {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -22,6 +23,7 @@ public class Student {
     public Integer getMark() {
         return mark;
     }
+
     public void setMark(Integer mark) {
         this.mark = mark;
     }

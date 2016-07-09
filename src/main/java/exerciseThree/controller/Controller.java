@@ -26,28 +26,22 @@ import java.util.ResourceBundle;
 
 
 public class Controller implements Initializable {
+    @FXML
+    TableColumn<Student, String> COL_STUDENT;
+    @FXML
+    TableColumn<Student, String> COL_MARK;
+    @FXML
+    CheckBox CB_CHART_1, CB_CHART_2;
     private CollectionOfStudents collectionOfStudents;
     private BarChartModel barChart;
     private PieChartModel pieChart;
     private AllChartsModel allCharts;
     private ObservableList<Student> students;
     private List<Student> studentList = new ArrayList<>();
-
-
     @FXML
     private TextField ID_TF_NUMBER;
-
     @FXML
     private TableView<Student> ID_TABLE_VIEW;
-
-    @FXML
-    TableColumn<Student,String> COL_STUDENT;
-    @FXML
-    TableColumn<Student,String> COL_MARK;
-
-    @FXML
-    CheckBox CB_CHART_1, CB_CHART_2;
-
     //Wykresy
     @FXML
     private BarChart<String, Integer> ID_BAR_CHART;
@@ -80,9 +74,8 @@ public class Controller implements Initializable {
     }
 
     //Sprawdzenie czy podana wartość jest liczbą
-    private boolean validateInteger(String text)
-    {
-        if(text.matches("\\d*"))
+    private boolean validateInteger(String text) {
+        if (text.matches("\\d*"))
             return false;
         else if (text.matches("\"\"")) {
             return true;
@@ -93,9 +86,8 @@ public class Controller implements Initializable {
     }
 
     //Generowanie losowych danych o studentach i ocenach
-    private void generateListOfStudents(){
-        if(ID_TF_NUMBER.getText().equals(""))
-        {
+    private void generateListOfStudents() {
+        if (ID_TF_NUMBER.getText().equals("")) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Informacja");
             alert.setHeaderText("Podaj właściwe dane!");
@@ -119,8 +111,8 @@ public class Controller implements Initializable {
         studentList.clear();
         Random random = new Random(System.currentTimeMillis());
         for (int i = 0; i < quantityOfStudent; i++) {
-            int mark = Math.abs(random.nextInt(6)+1);
-            Student student = new Student("Student " + String.valueOf(i+1), mark);
+            int mark = Math.abs(random.nextInt(6) + 1);
+            Student student = new Student("Student " + String.valueOf(i + 1), mark);
             studentList.add(student);
         }
     }
@@ -146,14 +138,15 @@ public class Controller implements Initializable {
         if (CB_CHART_2.isSelected()) {
             flag = true;
             collectionOfStudents.attachToAll(pieChart);
-        } else  {
+        } else {
             collectionOfStudents.detachToAll(pieChart);
         }
         return flag;
     }
 
     //Obsługa przycisku generowania wykresów
-    @FXML protected void generateBtn() {
+    @FXML
+    protected void generateBtn() {
         generateListOfStudents();
         setStudentsArray();
         if (whichCheckBoxesAreSelected()) {
@@ -164,7 +157,8 @@ public class Controller implements Initializable {
     }
 
     //Obsługa przycisku czyszczenia danych
-    @FXML protected void clearBtn() {
+    @FXML
+    protected void clearBtn() {
         studentList.clear();
         setStudentsArray();
         if (whichCheckBoxesAreSelected()) {

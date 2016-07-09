@@ -16,7 +16,6 @@ public class CollectionOfStudents implements IObservable {
     }
 
 
-
     //Observe method
     @Override
     public void attachToAll(IObservator observer) {
@@ -33,7 +32,7 @@ public class CollectionOfStudents implements IObservable {
     }
 
     @Override
-    public void notifyAllObservers(ObservableList<Student> students){
+    public void notifyAllObservers(ObservableList<Student> students) {
         for (IObservator observer : observers) {
             observer.update(students);
         }

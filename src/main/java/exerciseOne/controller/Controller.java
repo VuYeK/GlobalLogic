@@ -16,30 +16,6 @@ public class Controller implements Initializable {
     @FXML
     private TextField txtFieldWord;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
-
-
-    @FXML
-    protected void button_find(){
-        String temp = txtFieldWord.getText();
-        temp = temp.toLowerCase();
-        char character = findFirstNonRepeatingChar(temp);
-        if(character!='\0')txtResult.setText(String.valueOf(character));
-        else txtResult.setText("NO NON-REPEATABLE");
-        txtResult.setVisible(true);
-    }
-
-    @FXML
-    public void enter_pressed(KeyEvent e)
-    {
-        if(e.getCode() == KeyCode.ENTER)
-        {
-            button_find();
-        }
-    }
-
     private static char findFirstNonRepeatingChar(String string) {
         Set<Character> repeating = new HashSet<>();
         List<Character> nonRepeating = new ArrayList<>();
@@ -55,9 +31,30 @@ public class Controller implements Initializable {
                 nonRepeating.add(letter);
             }
         }
-        if(nonRepeating.size()!=0)
-         return nonRepeating.get(0);
+        if (nonRepeating.size() != 0)
+            return nonRepeating.get(0);
         return '\0';
         //throw new RuntimeException("didn't find any non repeated Character");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+    }
+
+    @FXML
+    protected void button_find() {
+        String temp = txtFieldWord.getText();
+        temp = temp.toLowerCase();
+        char character = findFirstNonRepeatingChar(temp);
+        if (character != '\0') txtResult.setText(String.valueOf(character));
+        else txtResult.setText("NO NON-REPEATABLE");
+        txtResult.setVisible(true);
+    }
+
+    @FXML
+    public void enter_pressed(KeyEvent e) {
+        if (e.getCode() == KeyCode.ENTER) {
+            button_find();
+        }
     }
 }

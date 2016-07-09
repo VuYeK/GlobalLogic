@@ -31,45 +31,57 @@ public class Contact {
     public int getId_kontaktu() {
         return id_kontaktu;
     }
-    public String getImie() {
-        return imie;
-    }
-    public String getNazwisko() {
-        return nazwisko;
-    }
-    public String getWojewodztwo() {
-        return wojewodztwo;
-    }
-    public String getUlica() {
-        return ulica;
-    }
-    public String getKodPocztowy() {
-        return kodPocztowy;
-    }
-    public String getMiasto() {
-        return miasto;
-    }
 
     /*SETTERS*/
     public void setId_kontaktu(int id_kontaktu) {
         this.id_kontaktu = id_kontaktu;
     }
+
+    public String getImie() {
+        return imie;
+    }
+
     public void setImie(String imie) {
         this.imie = imie;
     }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
     public void setNazwisko(String nazwisko) {
         this.nazwisko = nazwisko;
     }
-    public void setUlica(String ulica) {
-        this.ulica = ulica;
+
+    public String getWojewodztwo() {
+        return wojewodztwo;
     }
+
     public void setWojewodztwo(String wojewodztwo) {
         this.wojewodztwo = wojewodztwo;
     }
-    public void setMiasto(String miasto) {
-        this.miasto = miasto;
+
+    public String getUlica() {
+        return ulica;
     }
+
+    public void setUlica(String ulica) {
+        this.ulica = ulica;
+    }
+
+    public String getKodPocztowy() {
+        return kodPocztowy;
+    }
+
     public void setKodPocztowy(String kodPocztowy) {
         this.kodPocztowy = kodPocztowy;
+    }
+
+    public String getMiasto() {
+        return miasto;
+    }
+
+    public void setMiasto(String miasto) {
+        this.miasto = miasto;
     }
 }

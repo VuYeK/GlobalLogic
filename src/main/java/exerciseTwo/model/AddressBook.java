@@ -9,12 +9,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-
-public class AddressBook implements IAddressBook{
+public class AddressBook implements IAddressBook {
     //Polaczenie z baza
     public static ConnectDB baza = ConnectDB.getInstance();
 
     private static volatile AddressBook instance = null;
+
+    //Konstruktor
+    private AddressBook() {
+    }
 
     /**
      * Singleton ktory tworzy tylko 1 instancje klasy na wszystkich watkach(synchronized).
@@ -30,11 +33,6 @@ public class AddressBook implements IAddressBook{
         return instance;
     }
 
-    //Konstruktor
-    private AddressBook() {
-    }
-
-
     /**
      * Metody
      */
@@ -44,7 +42,7 @@ public class AddressBook implements IAddressBook{
 
             baza.prepareStmt = baza.polaczenie.prepareStatement("INSERT INTO kontakty VALUES (null, ?, ?, ?, ?, ?, ?);");
 
-            int i=0;
+            int i = 0;
             baza.prepareStmt.setString(++i, contact.getImie());
             baza.prepareStmt.setString(++i, contact.getNazwisko());
             baza.prepareStmt.setString(++i, contact.getWojewodztwo());
@@ -71,7 +69,7 @@ public class AddressBook implements IAddressBook{
             int id_kontaktu;
             String imie, nazwisko, wojewodztwo, ulica, kodPocztowy, miasto;
 
-            for(int i=0; result.next(); i++) {
+            for (int i = 0; result.next(); i++) {
                 id_kontaktu = result.getInt("id_kontaktu");
                 imie = result.getString("imie");
                 nazwisko = result.getString("nazwisko");
@@ -97,7 +95,7 @@ public class AddressBook implements IAddressBook{
         try {
             baza.prepareStmt = baza.polaczenie.prepareStatement("DELETE FROM kontakty " + "WHERE imie = ? AND nazwisko = ? AND miasto = ?");
 
-            int i=0;
+            int i = 0;
             baza.prepareStmt.setString(++i, contact.getImie());
             baza.prepareStmt.setString(++i, contact.getNazwisko());
             baza.prepareStmt.setString(++i, contact.getMiasto());

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
-public class Controller implements Initializable{
+public class Controller implements Initializable {
 
 
     private AddressBook ksiazka = AddressBook.getInstance();
@@ -36,7 +36,7 @@ public class Controller implements Initializable{
         setListViewAndCounter();
     }
 
-    protected void setListViewAndCounter(){
+    protected void setListViewAndCounter() {
         //Pobieranie danych do ListView
         ArrayList<Contact> contacts = new ArrayList<>(ksiazka.wyswietl_kontakty());
         ObservableList<Contact> data = FXCollections.observableArrayList(contacts);
@@ -56,7 +56,7 @@ public class Controller implements Initializable{
                     protected void updateItem(Contact item, boolean empty) {
                         super.updateItem(item, empty);
                         if (item != null) {
-                            setText(String.valueOf(contacts.indexOf(item)+1) + ". " + item.getImie() + " " + item.getNazwisko() + ", "
+                            setText(String.valueOf(contacts.indexOf(item) + 1) + ". " + item.getImie() + " " + item.getNazwisko() + ", "
                                     + item.getWojewodztwo() + ", " + item.getUlica() + ", "
                                     + item.getKodPocztowy() + ", " + item.getMiasto());
                         }
@@ -92,14 +92,14 @@ public class Controller implements Initializable{
         atributes.add(textKodPocztowy.getText());
         atributes.add(textMiasto.getText());
         Contact contact;
-        if(atributes.size() != 0) { //nie wypelnione ZADNE pole.
+        if (atributes.size() != 0) { //nie wypelnione ZADNE pole.
             for (String string : atributes) {   //sprawdzam czy wypelnione WSZYSTKIE pola
                 if (string.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Prosze wypelnic wszystkie pola");
                     return;
                 }
             }
-            contact = new Contact(atributes.get(0), atributes.get(1),atributes.get(2),atributes.get(3),atributes.get(4),atributes.get(5));
+            contact = new Contact(atributes.get(0), atributes.get(1), atributes.get(2), atributes.get(3), atributes.get(4), atributes.get(5));
 
             ksiazka.dodaj_kontakt(contact);  //BD
         } else {
